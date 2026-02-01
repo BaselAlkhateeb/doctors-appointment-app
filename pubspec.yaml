@@ -52,6 +52,8 @@ dependencies:
 #PRESENTATION LAYER
   #views
   flutter_native_splash: ^2.4.7
+  flutter_svg: ^2.2.3
+  flutter_screenutil: ^5.9.3
   #widgets
 
 #OTHERS
