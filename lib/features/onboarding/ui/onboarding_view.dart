@@ -1,3 +1,4 @@
+import 'package:doctors_appointment/core/helpers/extentions.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingView extends StatelessWidget {
@@ -5,6 +6,13 @@ class OnboardingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Center(child: Text('OnboardingView')));
+    
+    return Scaffold(body: GestureDetector(
+      onTap: (){
+      //  Navigator.pushNamed(context, routeName)
+      //context.pushNamed('routeName' , arguments: '');
+      
+      },
+      child: Center(child: Text('OnboardingView'))));
   }
 }
