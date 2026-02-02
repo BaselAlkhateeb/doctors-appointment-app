@@ -52,6 +52,8 @@ dependencies:
 #PRESENTATION LAYER
   #views
   flutter_native_splash: ^2.4.7
+  flutter_svg: ^2.2.3
+  flutter_screenutil: ^5.9.3
   #widgets
 
 #OTHERS
@@ -85,9 +87,9 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/images/
+    - assets/svgs/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
   # For details regarding adding assets from package dependencies, see
