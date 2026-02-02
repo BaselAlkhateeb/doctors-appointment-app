@@ -1,3 +1,5 @@
+import 'package:doctors_appointment/core/helpers/extentions.dart';
+import 'package:doctors_appointment/core/routing/routes_string.dart';
 import 'package:doctors_appointment/core/theme/colors_maneger.dart';
 import 'package:doctors_appointment/core/theme/text_styles.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +24,9 @@ class GetStartedButton extends StatelessWidget {
             )
             
           ),
-          onPressed: () {},
+          onPressed: () {
+            context.pushNamed(RoutesString.loginView);
+          },
           child: Text(
             'Get Started',
             style: TextStyles.font16WhiteSemiBold,
