@@ -13,7 +13,8 @@ class AppTextButton extends StatelessWidget {
   final double? buttonHeight;
   final String buttonText;
   final TextStyle textStyle;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
+  final Widget? child;
   const AppTextButton({
     super.key,
     this.borderRadius,
@@ -22,6 +23,7 @@ class AppTextButton extends StatelessWidget {
     this.verticalPadding,
     this.buttonHeight,
     this.buttonWidth,
+    this.child,
     required this.buttonText,
     required this.textStyle,
     required this.onPressed,
@@ -50,7 +52,7 @@ class AppTextButton extends StatelessWidget {
         ),
       ),
       onPressed: onPressed,
-      child: Text(
+      child:child?? Text(
         buttonText,
         style: textStyle,
       ),

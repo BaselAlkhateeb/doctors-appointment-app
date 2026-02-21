@@ -57,6 +57,7 @@ dependencies:
   #widgets
 
 #OTHERS
+  flutter_secure_storage: ^10.0.0
   #code generator
   build_runner: ^2.10.5
   #dependency injection
@@ -64,6 +65,8 @@ dependencies:
   #localization
   intl: ^0.20.2
   easy_localization: ^3.0.8
+  #just for snackbars
+  get: ^4.7.3
 
 
 dev_dependencies:

@@ -8,15 +8,18 @@ class AlreadyHaveAnAccountText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RichText(
-      textAlign: TextAlign.center,
-      text: TextSpan(
-      children: [
-        TextSpan(text: 'Already have an account yet? ' , style: TextStyles.font12darkBlueRegular.copyWith(fontSize: 13) ) , 
-        TextSpan(text: 'Sign Up ' , style: TextStyles.font13BlueSemiBold ,  ) , 
-    
-      ]
-    ));
+    return Align(
+      alignment: AlignmentGeometry.center,
+      child: RichText(
+        textAlign: TextAlign.center,
+        text: TextSpan(
+        children: [
+          TextSpan(text: 'Already have an account yet? ' , style: TextStyles.font12darkBlueRegular.copyWith(fontSize: 13) ) , 
+          TextSpan(text: 'Sign Up ' , style: TextStyles.font13BlueSemiBold ,  ) , 
+      
+        ]
+      )),
+    );
   }
 }
 
