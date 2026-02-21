@@ -3,6 +3,7 @@ import 'package:doctors_appointment/core/routing/routes_string.dart';
 import 'package:doctors_appointment/core/theme/colors_maneger.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/route_manager.dart';
 
 class DocApp extends StatelessWidget {
   const DocApp({super.key, required this.appRouter});
@@ -13,7 +14,7 @@ class DocApp extends StatelessWidget {
       designSize: const Size(375, 812),
       minTextAdapt: true,
       splitScreenMode: true,
-      child: MaterialApp(
+      child: GetMaterialApp(
         title: 'Doc App',
         theme: ThemeData(
           primaryColor: ColorsManeger.primaryColor,
