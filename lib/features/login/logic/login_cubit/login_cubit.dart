@@ -9,10 +9,6 @@ class LoginCubit extends Cubit<LoginState> {
   final LoginRepo _loginRepo;
 
 
-
-
- 
-
   void emitLoginStates(LoginRequestBody loginRequestBody) async {
     emit(LoginState.loading());
     final data = await _loginRepo.login(loginRequestBody);
