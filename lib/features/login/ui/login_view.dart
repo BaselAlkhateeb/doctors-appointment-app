@@ -2,7 +2,7 @@ import 'package:doctors_appointment/core/helpers/spacing.dart';
 import 'package:doctors_appointment/core/theme/text_styles.dart';
 import 'package:doctors_appointment/features/login/ui/widgets/login_button_section.dart';
 import 'package:doctors_appointment/features/login/ui/widgets/email_text_form_field.dart';
-import 'package:doctors_appointment/features/login/ui/widgets/have_an_account_text.dart';
+import 'package:doctors_appointment/features/login/ui/widgets/dont_have_account_text.dart';
 import 'package:doctors_appointment/features/login/ui/widgets/password_text_form_field.dart';
 import 'package:doctors_appointment/features/login/ui/widgets/password_validation_section.dart';
 import 'package:doctors_appointment/features/login/ui/widgets/remember_me_and_forget_password.dart';
@@ -59,7 +59,7 @@ class LoginView extends StatelessWidget {
                 verticalSpace(20),
 
                 //---------------------------------------------------------------------
-                AlreadyHaveAnAccountText(),
+                DontHaveAccountText(),
               ],
             ),
           ),
