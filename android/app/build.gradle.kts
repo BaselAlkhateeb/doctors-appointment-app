@@ -6,6 +6,9 @@ plugins {
 }
 
 android {
+
+
+
     namespace = "com.example.doctors_appointment"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
@@ -29,6 +32,22 @@ android {
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }
+
+ flavorDimensions += "default"
+
+    productFlavors {
+        create("Development") {
+            dimension = "default"
+            applicationIdSuffix = ".dev"
+            resValue("string", "app_name", "DocDoc Dev")
+        }
+
+        create("Production") {
+            dimension = "default"
+            resValue("string", "app_name", "DocDoc")
+        }
+    }
+
 
     buildTypes {
         release {
