@@ -1,0 +1,40 @@
+name: Android App Distribution
+
+on:
+  push:
+    branches:
+      - development
+
+jobs:
+  distribute_to_firebase:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.19.0'
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Install Ruby & Fastlane
+        run: |
+          sudo gem install bundler
+          cd android
+          bundle install
+
+      - name: Run Fastlane
+        working-directory: android
+        env:
+          FIRBASE_CLI_TOKEN: ${{ secrets.FIRBASE_CLI_TOKEN }}
+        run: bundle exec fastlane firebase_release
