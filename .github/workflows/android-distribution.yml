@@ -24,17 +24,21 @@ jobs:
         with:
           channel: stable
 
-      - name: Install dependencies
+      - name: Install Flutter dependencies
         run: flutter pub get
 
-      - name: Install Ruby & Fastlane
+      - name: Install Bundler locally
         run: |
-          sudo gem install bundler
+          gem install bundler -v 2.6.9 --user-install
+          export PATH="$HOME/.gem/ruby/$(ls $HOME/.gem/ruby)/bin:$PATH"
+
+      - name: Install Fastlane gems
+        run: |
           cd android
-          bundle install
+          bundle _2.6.9_ install --path vendor/bundle
 
       - name: Run Fastlane
         working-directory: android
         env:
           FIRBASE_CLI_TOKEN: ${{ secrets.FIRBASE_CLI_TOKEN }}
-        run: bundle exec fastlane firebase_release
+        run: bundle _2.6.9_ exec fastlane firebase_release
