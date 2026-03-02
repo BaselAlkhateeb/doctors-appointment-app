@@ -8,6 +8,8 @@ platform :android do
     sh "flutter build apk --release --flavor production --target lib/main_production.dart --no-tree-shake-icons"
 
     firebase_app_distribution(
+      app: "1:991241250306:android:93f31e90b2200b3861a91b",
+      firebase_cli_token: ENV["FIRBASE_CLI_TOKEN"],
       apk_path: "../build/app/outputs/flutter-apk/app-production-release.apk",
       testers: "baselalkhateeb45@gmail.com",
       release_notes: "New production release using fastlane"
