@@ -1,58 +1,40 @@
-name: Android App Distribution
+name: Android Fastlane with Firebase App Distribution Workflow
 
 on:
   push:
     branches:
-      - development   # للإصدارات التجريبية
-      # - main       # للإصدار الرسمي عند النشر
+      - development
 
 jobs:
   distribute_to_firebase:
     runs-on: ubuntu-latest
-
     steps:
-      # 1️⃣ استنساخ الريبو
-      - name: Checkout repository
-        uses: actions/checkout@v4
+    - name: Checkout my repo code
+      uses: actions/checkout@v2
+    
+    - name: Set up JDK 11
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+    
+    - name: Install Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        channel: stable
 
-      # 2️⃣ إعداد Java
-      - name: Setup Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '17'
-
-      # 3️⃣ إعداد Flutter المستقر
-      - name: Setup Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          channel: stable
-
-      # 4️⃣ التحقق من نسخ Flutter و Dart
-      - name: Check Flutter & Dart versions
-        run: flutter --version
-
-      # 5️⃣ تثبيت dependencies الخاصة بـ Flutter
-      - name: Install Flutter dependencies
-        run: flutter pub get
-
-      # 6️⃣ تثبيت Bundler 2.6.9 محليًا
-      - name: Install Bundler 2.6.9 locally
-        run: gem install bundler -v 2.6.9 --user-install
-
-      # 7️⃣ إضافة مسار gems إلى PATH لجميع الخطوات القادمة
-      - name: Add gem path to PATH
-        run: echo "$HOME/.gem/ruby/3.2.0/bin" >> $GITHUB_PATH
-
-      # 8️⃣ تثبيت gems الخاصة بـ Fastlane بدون مشاكل صلاحيات
-      - name: Install Fastlane gems
-        run: |
-          cd android
-          bundle _2.6.9_ install --path vendor/bundle
-
-      # 9️⃣ تشغيل Fastlane لنشر التطبيق على Firebase
-      - name: Run Fastlane
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: "3.2.3"
+        bundler-cache: true
         working-directory: android
-        env:
-          FIRBASE_CLI_TOKEN: ${{ secrets.FIRBASE_CLI_TOKEN }}
-        run: bundle _2.6.9_ exec fastlane firebase_release
+        
+    - name: Build and Distribute App
+      env:
+        FIRBASE_CLI_TOKEN: ${{ secrets.FIRBASE_CLI_TOKEN }}
+      run: |
+        bundle exec fastlane android firebase_release
+      working-directory: android
+
+
