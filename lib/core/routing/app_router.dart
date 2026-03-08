@@ -46,7 +46,7 @@ class AppRouter {
         );
 
       case RoutesString.homeView:
-        return MaterialPageRoute(builder: (context) => HomeView());
+        return MaterialPageRoute(builder: (context) => HomeView() , );
       default:
         return MaterialPageRoute(
           builder: (context) => Scaffold(
