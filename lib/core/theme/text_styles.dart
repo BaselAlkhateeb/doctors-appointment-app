@@ -97,4 +97,9 @@ class TextStyles {
     color: Colors.white,
     fontWeight: FontWeightHelper.semiBold,
   );
+    static TextStyle font18WhiteMedium = TextStyle(
+    fontSize: 18.sp,
+    color: Colors.white,
+    fontWeight: FontWeightHelper.medium,
+  );
 }
