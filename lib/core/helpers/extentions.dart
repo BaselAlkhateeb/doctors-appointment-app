@@ -24,4 +24,8 @@ extension Navigation on BuildContext {
   void pop() => Navigator.of(this).pop();
 }
 
-
+extension SliverExtension on Widget {
+  SliverToBoxAdapter toSliver() {
+    return SliverToBoxAdapter(child: this);
+  }
+}
