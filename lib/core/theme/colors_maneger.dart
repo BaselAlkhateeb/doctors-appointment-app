@@ -9,10 +9,18 @@ class ColorsManeger {
   static const Color darkBlue = Color(0xff242424);
   static const Color checkboxBorderColor = Color(0xffA9B2B9);
   static const Color lightGrey = Color(0xff9E9E9E);
+  static const Color darkGrey = Color(0xff616161);
+  static const Color lighterGrey = Color(0xffF5F5F5);
+  static const Color verylightBlue = Color(0xffF4F8FF);
+  static const Color yellow = Color(0xffFFD600);
 
 
-//
+
+//#FFD600
+
+//#F4F8FF
 //#A9B2B9
-
+//#616161
+//#F5F5F5
 
 }
